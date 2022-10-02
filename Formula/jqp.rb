@@ -5,21 +5,21 @@
 class Jqp < Formula
   desc "a TUI playground to experiment and play with jq"
   homepage "https://github.com/noahgorstein/jqp"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.2.0/jqp_0.2.0_Darwin_x86_64.tar.gz"
-      sha256 "1b2a3287845a153b6a5fb976c2041f80cd63e781705d975085ee0121a2b782ce"
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.3.0/jqp_0.3.0_Darwin_x86_64.tar.gz"
+      sha256 "f42c88a083dbc6e36bc4ff25071a665768f1e88f7fe3466f230dd1c3279d087b"
 
       def install
         bin.install "jqp"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.2.0/jqp_0.2.0_Darwin_arm64.tar.gz"
-      sha256 "1d0c9004e879a4bb51836e931e830f14c50d8c9dbea84129e2f9fb7552a8b01a"
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.3.0/jqp_0.3.0_Darwin_arm64.tar.gz"
+      sha256 "e99105a12bbbb5c92339c71022fb571c51e9ba73299ef7b535851494d1e66d96"
 
       def install
         bin.install "jqp"
@@ -28,17 +28,17 @@ class Jqp < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.2.0/jqp_0.2.0_Linux_x86_64.tar.gz"
-      sha256 "6dd22c745844bee0e77d5a073ed77eb2ac3fafce923482443676c604802e9507"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.3.0/jqp_0.3.0_Linux_arm64.tar.gz"
+      sha256 "d98e27e588112dca7249d613bcbe6b53071543a9de138fc8e1ecb08781ce459e"
 
       def install
         bin.install "jqp"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.2.0/jqp_0.2.0_Linux_arm64.tar.gz"
-      sha256 "46bda9d62d64ce54d6eedcdf88f8a8e29adf80835ef8f9af2a55698f5b69cb88"
+    if Hardware::CPU.intel?
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.3.0/jqp_0.3.0_Linux_x86_64.tar.gz"
+      sha256 "9ce831b694d2ecb186259aa331aa4db97a88a5f4ea14d15910472b9d167f068a"
 
       def install
         bin.install "jqp"
