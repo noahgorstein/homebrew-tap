@@ -5,21 +5,21 @@
 class DogWatcher < Formula
   desc "A TUI to manage processes in Stardog."
   homepage "https://github.com/noahgorstein/dog-watcher"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/noahgorstein/dog-watcher/releases/download/v0.1.0/dog-watcher_0.1.0_Darwin_x86_64.tar.gz"
-      sha256 "89d2d89c1b6fd7f57ed9755519abfe5ac13c6902ce814efe1e4823812a658a6b"
+      url "https://github.com/noahgorstein/dog-watcher/releases/download/v0.2.0/dog-watcher_Darwin_x86_64.tar.gz"
+      sha256 "7da2e5bcae28e1188f5e62c7470e22b79fb023f2aa8888b5830f42fb4c5491c7"
 
       def install
         bin.install "dog-watcher"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/noahgorstein/dog-watcher/releases/download/v0.1.0/dog-watcher_0.1.0_Darwin_arm64.tar.gz"
-      sha256 "082e1bf0a2e88e93f1178fa035656dae0e0c99b1fad5313af4e33d46370fdad4"
+      url "https://github.com/noahgorstein/dog-watcher/releases/download/v0.2.0/dog-watcher_Darwin_arm64.tar.gz"
+      sha256 "69c0f80a6acfd3de7fb6e78e6361111ddef0f86b607f3d70ef622a6bff599ad4"
 
       def install
         bin.install "dog-watcher"
@@ -28,17 +28,17 @@ class DogWatcher < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/noahgorstein/dog-watcher/releases/download/v0.1.0/dog-watcher_0.1.0_Linux_x86_64.tar.gz"
-      sha256 "d8df5bfe8ef7256c62a660821e39fecdff00e83e70f03746ce4b1a3877aef266"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noahgorstein/dog-watcher/releases/download/v0.2.0/dog-watcher_Linux_arm64.tar.gz"
+      sha256 "f10f897b77e737900bd22059f38a0a4e3a6ed674f731d279e2d80dbe20110f28"
 
       def install
         bin.install "dog-watcher"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noahgorstein/dog-watcher/releases/download/v0.1.0/dog-watcher_0.1.0_Linux_arm64.tar.gz"
-      sha256 "674fa9e76528d926c6e3114a61dfefca6fec0822d075c3011e423cad6d2d9f04"
+    if Hardware::CPU.intel?
+      url "https://github.com/noahgorstein/dog-watcher/releases/download/v0.2.0/dog-watcher_Linux_x86_64.tar.gz"
+      sha256 "95abd3b872836c7952f42c762526f6a67d908225e854321e6500f893c29ec410"
 
       def install
         bin.install "dog-watcher"
