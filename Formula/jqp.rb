@@ -5,21 +5,21 @@
 class Jqp < Formula
   desc "a TUI playground to experiment and play with jq"
   homepage "https://github.com/noahgorstein/jqp"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.5.0/jqp_Darwin_x86_64.tar.gz"
-      sha256 "1e6b611706560fdfe37b68b40bc1b650a8a35c04c59861f14922c2f5c84bedb6"
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.6.0/jqp_Darwin_x86_64.tar.gz"
+      sha256 "351ecae85152733c61f33deed408822710f7f9192d3f8dbb0aade4afd7624ad6"
 
       def install
         bin.install "jqp"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.5.0/jqp_Darwin_arm64.tar.gz"
-      sha256 "c8499f8a95d39ef9dda9ec64e983987568e1b6f519660829ffabe9c7aff23f3f"
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.6.0/jqp_Darwin_arm64.tar.gz"
+      sha256 "826b189a9c4dd51f1c01d35800f65f22d3771535e821dd636974e764cb0863aa"
 
       def install
         bin.install "jqp"
@@ -28,17 +28,17 @@ class Jqp < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.5.0/jqp_Linux_arm64.tar.gz"
-      sha256 "e3755afdeb00345a35b28f3f1953e9a69f762f0f309ab5ee37f77bfc65b1e051"
+    if Hardware::CPU.intel?
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.6.0/jqp_Linux_x86_64.tar.gz"
+      sha256 "77ca6bf04e4840191b9c29988bc30885606f9b2610c4a640f4686ad9d7ede102"
 
       def install
         bin.install "jqp"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.5.0/jqp_Linux_x86_64.tar.gz"
-      sha256 "6892db2a83f4238cb5cf0b69ceb2318cef5aad1a7144ded27e7ff09dbb39a0b3"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.6.0/jqp_Linux_arm64.tar.gz"
+      sha256 "e7868da8eb7846baa72644522fc92fd7c88a8c38fdde84caf31ea98e0b5ca2f0"
 
       def install
         bin.install "jqp"
