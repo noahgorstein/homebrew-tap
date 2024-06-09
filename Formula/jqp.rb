@@ -5,21 +5,21 @@
 class Jqp < Formula
   desc "a TUI playground to experiment and play with jq"
   homepage "https://github.com/noahgorstein/jqp"
-  version "0.6.0"
+  version "0.7.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.6.0/jqp_Darwin_x86_64.tar.gz"
-      sha256 "351ecae85152733c61f33deed408822710f7f9192d3f8dbb0aade4afd7624ad6"
+    on_intel do
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.7.0/jqp_Darwin_x86_64.tar.gz"
+      sha256 "342d77a672faca4075ae5a1f92b05c6b8a7c8a55831f5eb45242271e1e33dbac"
 
       def install
         bin.install "jqp"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.6.0/jqp_Darwin_arm64.tar.gz"
-      sha256 "826b189a9c4dd51f1c01d35800f65f22d3771535e821dd636974e764cb0863aa"
+    on_arm do
+      url "https://github.com/noahgorstein/jqp/releases/download/v0.7.0/jqp_Darwin_arm64.tar.gz"
+      sha256 "1736011b2bcc40579a0b81f9f6b3d977139036d5dd678d3243ccac27eb5c2e17"
 
       def install
         bin.install "jqp"
@@ -28,20 +28,24 @@ class Jqp < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.6.0/jqp_Linux_x86_64.tar.gz"
-      sha256 "77ca6bf04e4840191b9c29988bc30885606f9b2610c4a640f4686ad9d7ede102"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/noahgorstein/jqp/releases/download/v0.7.0/jqp_Linux_x86_64.tar.gz"
+        sha256 "53d595ad76f2a91dcba0b1de71f720c36c3021e37fe114184b4eb4d949c4d2bc"
 
-      def install
-        bin.install "jqp"
+        def install
+          bin.install "jqp"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/noahgorstein/jqp/releases/download/v0.6.0/jqp_Linux_arm64.tar.gz"
-      sha256 "e7868da8eb7846baa72644522fc92fd7c88a8c38fdde84caf31ea98e0b5ca2f0"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/noahgorstein/jqp/releases/download/v0.7.0/jqp_Linux_arm64.tar.gz"
+        sha256 "8ee2912efd7a522755e7ff5dee7a25e8ba2c1dc8ac493a2a0fabcaa114bbcc5a"
 
-      def install
-        bin.install "jqp"
+        def install
+          bin.install "jqp"
+        end
       end
     end
   end
